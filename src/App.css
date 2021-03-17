@@ -1,0 +1,46 @@
+.grid {
+  display              : grid;
+  grid-gap             : 20px;
+  padding              : 20px 20px;
+  margin               : 0 auto;
+  grid-template-areas  :
+    'blok1'
+    'blok2'
+    'blok3';
+}
+
+.grid>* {
+  border: 5px solid black;
+}
+
+.blok1 {
+  grid-area       : blok1;
+  background-color: whitesmoke;
+  border          : 5px solid rgba(237, 244, 250, 1);
+  box-shadow      : 0 0 40px rgba(0, 0, 0, 0.5);
+  border-radius   : 10px;
+  padding: 10px;
+}
+
+.blok2 {
+  grid-area       : blok2;
+  padding: 20px;
+}
+
+.blok3 {
+  grid-area       : blok3;
+  padding: 20px;
+}
+
+
+@media (min-width:800px) {
+  .grid {
+    max-width            : 1600px;
+    height               : auto;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas  :
+      'blok1 blok1'
+      'blok2 blok3';
+
+  }
+}
