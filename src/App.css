@@ -36,8 +36,7 @@
 @media (min-width:800px) {
   .grid {
     max-width            : 1600px;
-    height               : auto;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-areas  :
       'blok1 blok1'
       'blok2 blok3';
