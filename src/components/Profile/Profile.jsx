@@ -1,5 +1,6 @@
 import React from 'react';
 import AvatarBlok from './AvatarBlock/AvatarBlok';
+import MyPosts from './MyPosts/MyPosts';
 import style from './Profile.module.css'
 
 const Profile = () => {
@@ -16,24 +17,11 @@ const Profile = () => {
                 <div>lookingForAJobDescription: Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                 <div>contacts: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum, omnis!</div>
             </div>
-
             <div className={style.blok3}>
                 <div>Мои посты</div>
-                <div>
-                    <div><textarea></textarea></div>
-                    <div><button>Добавить</button></div>
-                </div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, molestias!</div>
-                <div>Like</div>
-                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam architecto nulla consequatur. Unde, laborum aliquid a voluptatem, soluta quasi voluptates harum adipisci fugiat temporibus iste?</div>
-                <div>Like</div>
-                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur facere beatae error exercitationem distinctio explicabo!</div>
-                <div>Like</div>
-                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur facere beatae error exercitationem distinctio explicabo!</div>
-                <div>Like</div>
-                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur facere beatae error exercitationem distinctio explicabo!</div>
-                <div>Like</div>
+                <MyPosts />
             </div>
+
         </div>
     )
 }
