@@ -1,33 +1,39 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './NavigationPanel.module.css'
+import user from '../../img/user.png'
+import dialogs from '../../img/dialogs.png'
+import setting from '../../img/setting.png'
+import users from '../../img/users.png'
+import muzik from '../../img/muzik.png'
+import news from '../../img/news.png'
 
 const NavigationPanel = () => {
     return (
-        <div className={style.A1} >
+        <div className={style.navPanel} >
 
-            <div>
-                <NavLink to='/profile'>Профиль</NavLink>
+            <div className={style.linkLine}>
+                <NavLink to='/profile'> <img src={user} />Профиль</NavLink>
             </div>
 
-            <div>
-                <NavLink to='/dialogs'>Сообщения</NavLink>
+            <div className={style.linkLine}>
+                <NavLink to='/dialogs'> <img src={dialogs} />Сообщения</NavLink>
             </div>
 
-            <div>
-                <NavLink to='/users'>Пользователи</NavLink>
+            <div className={style.linkLine}>
+                <NavLink to='/users'> <img src={users} />Пользователи</NavLink>
             </div>
 
-            <div>
-                <NavLink to='/muzik'>Музыка</NavLink>
+            <div className={style.linkLine}>
+                <NavLink to='/muzik'> <img src={muzik} />Музыка</NavLink>
             </div>
 
-            <div>
-                <NavLink to='/news'>Новости</NavLink>
+            <div className={style.linkLine}>
+                <NavLink to='/news'> <img src={news} />Новости</NavLink>
             </div>
 
-            <div>
-                <NavLink to='/setting'>Настройки</NavLink>
+            <div className={style.linkLine}>
+                <NavLink to='/setting'> <img src={setting} />Настройки</NavLink>
             </div>
         </div>
     )
