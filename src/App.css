@@ -9,9 +9,9 @@
     'blok3';
 }
 
-.grid>* {
+/* .grid>* {
   border: 5px solid black;
-}
+} */
 
 .blok1 {
   grid-area       : blok1;
@@ -24,7 +24,13 @@
 
 .blok2 {
   grid-area       : blok2;
+  max-height: 200px;
+  background-color: whitesmoke;
+  border          : 5px solid rgba(237, 244, 250, 1);
+  box-shadow      : 0 0 40px rgba(0, 0, 0, 0.5);
+  border-radius   : 10px;
   padding: 20px;
+  margin: 20px;
 }
 
 .blok3 {
