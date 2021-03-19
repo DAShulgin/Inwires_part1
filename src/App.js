@@ -26,7 +26,7 @@ const App = () => {
       </div>
 
       <div className='blok3'>
-        <Route path='/profile' component={Profile} />
+        <Route exact path='/profile' component={Profile} />
         <Route path='/dialogs' render={() => <Dialogs />} />
         <Route path='/users' render={() => <Users />} />
         <Route path='/news' render={() => <News />} />

@@ -13,6 +13,8 @@
     box-shadow      : 0 0 40px rgba(0, 0, 0, 0.5);
     border-radius   : 10px;
     padding         : 10px;
+    width: min-content;
+    height:min-content;
 }
 
 .blok2 {
