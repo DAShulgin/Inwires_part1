@@ -1,0 +1,10 @@
+.addPost {
+    padding: 20px;
+    margin-bottom: 10px;
+    border          : 2px solid black;
+    border-radius   : 10px;
+    width: min-content;
+}
+.btnStyle{
+    text-align: right;
+}

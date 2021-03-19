@@ -11,7 +11,7 @@ import Setting from './components/Setting/Setting';
 import Dialogs from './components/Dialogs/Dialogs';
 
 
-const App = () => {
+const App = (props) => {
 
   return (
     <BrowserRouter>
@@ -26,8 +26,8 @@ const App = () => {
       </div>
 
       <div className='blok3'>
-        <Route exact path='/profile' component={Profile} />
-        <Route path='/dialogs' render={() => <Dialogs />} />
+        <Route exact path='/profile' render={() =><Profile postPage = {props.State.postPage} />} />
+        <Route path='/dialogs' render={() => <Dialogs dialogPage = {props.State.dialogPage}/>} />
         <Route path='/users' render={() => <Users />} />
         <Route path='/news' render={() => <News />} />
         <Route path='/muzik' render={() => <Muzik />} />
