@@ -1,3 +1,4 @@
+import {rerenderEntireTree} from './render';
 
 let State = {
     dialogPage: {
@@ -28,6 +29,11 @@ let State = {
             { id: 6, text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.', like: 35 },
         ]
     }
+}
+export let AddPost = (postText) => {
+    let newPost = { id: 7, text: postText, like: 0 };
+    State.postPage.posts.push(newPost);
+    rerenderEntireTree(State);
 }
 
 export default State;

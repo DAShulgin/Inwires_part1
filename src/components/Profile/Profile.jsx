@@ -15,7 +15,7 @@ const Profile = (props) => {
                 <ProfileInfo />
             </div>
             <div className={style.blok3}>
-                <MyPosts posts = {props.postPage.posts} />
+                <MyPosts posts = {props.postPage.posts}  AddPost = {props.AddPost} />
             </div>
 
         </div>

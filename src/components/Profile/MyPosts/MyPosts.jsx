@@ -12,7 +12,7 @@ const MyPosts = (props) => {
 
     return <div>
         <div className = {style.myPosts}>
-        <CreatePost />
+        <CreatePost AddPost = {props.AddPost} />
             <div>Мои посты</div>
         {PostItems}
         </div>

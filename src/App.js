@@ -26,7 +26,7 @@ const App = (props) => {
       </div>
 
       <div className='blok3'>
-        <Route exact path='/profile' render={() =><Profile postPage = {props.State.postPage} />} />
+        <Route exact path='/profile' render={() =><Profile postPage = {props.State.postPage} AddPost = {props.AddPost}/>} />
         <Route path='/dialogs' render={() => <Dialogs dialogPage = {props.State.dialogPage}/>} />
         <Route path='/users' render={() => <Users />} />
         <Route path='/news' render={() => <News />} />
