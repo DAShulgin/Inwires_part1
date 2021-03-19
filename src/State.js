@@ -1,5 +1,6 @@
 import {rerenderEntireTree} from './render';
 
+
 let State = {
     dialogPage: {
         dialogs: [
@@ -27,13 +28,23 @@ let State = {
             { id: 4, text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro, dicta!', like: 456 },
             { id: 5, text: 'Vivat.', like: 890 },
             { id: 6, text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.', like: 35 },
-        ]
+        ],
+        NewPostText: 'Новый пост'
     }
 }
+
+window.state  = State;
+
 export let AddPost = (postText) => {
     let newPost = { id: 7, text: postText, like: 0 };
     State.postPage.posts.push(newPost);
+    State.postPage.NewPostText = '';
     rerenderEntireTree(State);
+}
+
+export let updateNewPostText = (NewPostText) => {
+State.postPage.NewPostText = NewPostText;
+rerenderEntireTree(State);
 }
 
 export default State;
