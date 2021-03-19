@@ -35,6 +35,7 @@ const NavigationPanel = () => {
             <div className={style.linkLine}>
                 <NavLink to='/setting'> <img src={setting} />Настройки</NavLink>
             </div>
+            
         </div>
     )
 }

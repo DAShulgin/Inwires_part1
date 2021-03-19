@@ -1,18 +1,20 @@
-.navPanel  {
+.navPanel {
     font-weight: bold;
     font-size  : 17px;
     font-family: 'Comic Sans MS';
 }
+
 .linkLine {
-    display: flex; 
+    display: flex;
 }
 
 .linkLine img {
     vertical-align: middle;
     height        : 40px;
     width         : 40px;
-    padding: 5px;
+    padding       : 5px;
 }
+
 a {
     color: black;
 }
