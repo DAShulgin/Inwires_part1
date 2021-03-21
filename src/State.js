@@ -1,9 +1,5 @@
 let Store = {
 
-    _callSubscriber() {
-        console.log('state change');
-    },
-
     _State: {
         dialogPage: {
             dialogs: [
@@ -36,8 +32,21 @@ let Store = {
         }
     },
 
-    AddPost(postText) {
-        let newPost = { id: 7, text: postText, like: 0 };
+    _callSubscriber() {
+        console.log('state change');
+    },
+
+    getState() {
+        return this._State;
+    },
+
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
+
+    AddPost() {
+        let newPost = { id: 7, text: this._State.profilePage.NewPostText, like: 0 };
         this._State.profilePage.posts.push(newPost);
         this._State.profilePage.NewPostText = '';
         this._callSubscriber(this._State);
@@ -48,13 +57,16 @@ let Store = {
         this._callSubscriber(this._State);
     },
 
-    subscribe(observer) {
-        this._callSubscriber = observer;
-    },
 
-    getState() {
-        return this._State;
+    dispatch(action) {
+        if (action.type == 'ADD-POST') {
+            this.AddPost();
+        }
+        else if (action.type == 'UPDATE-POST-TEXT') {
+            this.updateNewPostText(action.NewPostText);
+        }
     }
+
 
 }
 

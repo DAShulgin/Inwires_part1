@@ -17,8 +17,7 @@ const Profile = (props) => {
             <div className={style.blok3}>
                 <MyPosts
                 profilePage = {props.State.profilePage}                 
-                AddPost = {props.AddPost} 
-                updateNewPostText  = {props.updateNewPostText}  />
+                dispatch = {props.dispatch}   />
             </div>
 
         </div>

@@ -14,8 +14,7 @@ const MyPosts = (props) => {
         <div className={style.myPosts}>
             <CreatePost 
                 NewPostText={props.profilePage.NewPostText}
-                AddPost={props.AddPost}
-                updateNewPostText={props.updateNewPostText} />
+                dispatch = {props.dispatch}  />
             <div>Мои посты</div>
             {PostItems}
         </div>
