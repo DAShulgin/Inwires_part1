@@ -1,5 +1,8 @@
 import React from 'react';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../State';
 import style from './CreatePost.module.css'
+
+
 
 
 const CreatePost = (props) => {
@@ -7,12 +10,12 @@ const CreatePost = (props) => {
     let newPostElement = React.createRef();
 
     let NewPostAdd = () => {
-     props.dispatch({type:'ADD-POST'});
+     props.dispatch(addPostActionCreator());
     }
 
    let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch({type:'UPDATE-POST-TEXT', NewPostText:text});
+    props.dispatch(updateNewPostTextActionCreator(text));
    }
 
     return <div className={style.addPost} >
