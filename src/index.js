@@ -1,21 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import State,{ AddPost, subscribe, updateNewPostText } from './State';
+import Store from './State';
 import reportWebVitals from './reportWebVitals';
 
 
 
- let rerenderEntireTree = (State) => {
+ let rerenderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <App State={State} AddPost={AddPost} updateNewPostText = {updateNewPostText}/>
+            <App State = {Store.getState()} 
+            AddPost={Store.AddPost.bind(Store)} 
+            updateNewPostText = {Store.updateNewPostText.bind(Store)} />
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
-rerenderEntireTree(State);
-subscribe(rerenderEntireTree);
+rerenderEntireTree(Store.getState());
+Store.subscribe(rerenderEntireTree);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
