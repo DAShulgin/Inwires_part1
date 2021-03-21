@@ -1,5 +1,6 @@
-import {rerenderEntireTree} from './render';
-
+let rerenderEntireTree = () => {
+console.log('state change');
+};
 
 let State = {
     dialogPage: {
@@ -35,16 +36,20 @@ let State = {
 
 window.state  = State;
 
-export let AddPost = (postText) => {
+export const AddPost = (postText) => {
     let newPost = { id: 7, text: postText, like: 0 };
     State.postPage.posts.push(newPost);
     State.postPage.NewPostText = '';
     rerenderEntireTree(State);
 }
 
-export let updateNewPostText = (NewPostText) => {
+export const updateNewPostText = (NewPostText) => {
 State.postPage.NewPostText = NewPostText;
 rerenderEntireTree(State);
+}
+
+export let subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default State;
