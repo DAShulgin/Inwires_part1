@@ -1,5 +1,7 @@
-const ADD_PPOST = 'ADD-POST';
-const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT'
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
 
 
 let Store = {
@@ -21,7 +23,8 @@ let Store = {
                 { id: 4, textMessage: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam dolores itaque placeat at ullam, totam sint mollitia quod eum magnam incidunt corrupti? Quia, eveniet asperiores!' },
                 { id: 5, textMessage: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, expedita.' },
                 { id: 6, textMessage: 'Lorem, ipsum dolor sit amet.' }
-            ]
+            ],
+            NewMessageText: 'Начат Новый Диалог'
         },
         profilePage: {
             posts: [
@@ -59,20 +62,38 @@ let Store = {
         this._State.profilePage.NewPostText = NewPostText;
         this._callSubscriber(this._State);
     },
+    AddMessage() {
+        let newMessage = { id: 7, textMessage: this._State.dialogPage.NewMessageText };
+        this._State.dialogPage.messages.push(newMessage);
+        this._State.dialogPage.NewMessageText = '';
+        this._callSubscriber(this._State);
+    },
+    updateMessageText(NewMessageText) {
+        this._State.dialogPage.NewMessageText = NewMessageText;
+        this._callSubscriber(this._State);
+    },
 
     dispatch(action) {
-        if (action.type == ADD_PPOST) {
+        if (action.type == ADD_POST) {
             this.AddPost();
         }
         else if (action.type == UPDATE_POST_TEXT) {
             this.updateNewPostText(action.NewPostText);
         }
+        else if (action.type == ADD_MESSAGE) {
+            this.AddMessage()
+        }
+        else if (action.type == UPDATE_MESSAGE_TEXT) {
+            this.updateMessageText(action.NewMessageText)
+        }
     }
 
 }
 
-export const addPostActionCreator = () => ( { type: ADD_PPOST } );
-export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_POST_TEXT,  NewPostText: text });
+export const addPostActionCreator = () => ({ type: ADD_POST });
+export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_POST_TEXT, NewPostText: text });
+export const addMessageAC = () => ({ type: ADD_MESSAGE });
+export const updateNewMessageTextAC = (text) => ({ type: UPDATE_MESSAGE_TEXT, NewMessageText: text });
 
 
 export default Store;
