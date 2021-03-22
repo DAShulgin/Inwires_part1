@@ -6,15 +6,15 @@ import Post from './OnePost/Post';
 
 const MyPosts = (props) => {
 
-    let posts = props.profilePage.posts;
+    let PostItems = props.posts.map(p => <Post key={p.id} text={p.text} like={p.like} />);
 
-    let PostItems = posts.map(p => <Post key={p.id} text={p.text} like={p.like} />);
 
     return <div>
         <div className={style.myPosts}>
-            <CreatePost 
-                NewPostText={props.profilePage.NewPostText}
-                dispatch = {props.dispatch}  />
+            <CreatePost
+                NewPostText={props.NewPostText}
+                addPost={props.addPost}
+                updatePost={props.updatePost} />
             <div>Мои посты</div>
             {PostItems}
         </div>

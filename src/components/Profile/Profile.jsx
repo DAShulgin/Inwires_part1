@@ -1,8 +1,8 @@
 import React from 'react';
 import AvatarBlok from './AvatarBlock/AvatarBlok';
-import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import style from './Profile.module.css'
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 const Profile = (props) => {
     return (
@@ -15,9 +15,7 @@ const Profile = (props) => {
                 <ProfileInfo />
             </div>
             <div className={style.blok3}>
-                <MyPosts
-                profilePage = {props.State.profilePage}                 
-                dispatch = {props.dispatch}   />
+                <MyPostsContainer store={props.store} />
             </div>
 
         </div>
