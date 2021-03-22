@@ -1,23 +1,20 @@
 import React from 'react';
-import { addMessageAC, updateNewMessageTextAC } from '../../../State';
+import { addMessageAC, updateNewMessageTextAC } from '../../../Redux/dialog-reducer';
 
 
 
 const AddOneMessage = (props) => {
 
-    let newMessageElement = React.createRef();
-
     let NewMessage = () => {
         props.dispatch(addMessageAC());
     }
 
-    let updateMessage = () => {
-        let text = newMessageElement.current.value;
-        props.dispatch(updateNewMessageTextAC(text));
+    let updateMessage = (e) => {   
+        props.dispatch(updateNewMessageTextAC(e.target.value));
     }
     
     return <div>
-        <div><textarea  onChange = {updateMessage}  ref={newMessageElement} value = {props.NewMessageText} ></textarea> </div>
+        <div><textarea  onChange = {updateMessage}  value = {props.NewMessageText} ></textarea> </div>
         <div><button onClick={NewMessage}>Написать</button></div>
     </div>
 }
