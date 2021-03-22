@@ -4,7 +4,7 @@ import style from './Setting.module.css'
 const Setting = () => {
     return (
         <div className={style.A1} >
-       Setting
+        <h1>Страница в стадии разработки</h1>
         </div>
     )
 }

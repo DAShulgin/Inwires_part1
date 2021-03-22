@@ -4,7 +4,7 @@ import style from './Users.module.css'
 const Users = () => {
     return (
         <div className={style.A1} >
-           Users
+           <h1>Страница в стадии разработки</h1>
         </div>
     )
 }

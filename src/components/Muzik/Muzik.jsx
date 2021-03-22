@@ -4,7 +4,7 @@ import style from './Muzik.module.css'
 const Muzik = () => {
     return (
         <div className={style.A1} >
-           Muzik
+          <h1>Страница в стадии разработки</h1>
         </div>
     )
 }
