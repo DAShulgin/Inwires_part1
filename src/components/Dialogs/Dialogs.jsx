@@ -8,9 +8,8 @@ import AddOneMessage from './AddOneMessage/AddOneMessage';
 
 const Dialogs = (props) => {
 
-    let DialogItems = props.dialogs.map(d => <Dialog key={d.id} Name={d.Name} />);
-
-    let MessageItems = props.messages.map(t => <Message key={t.id} textMessage={t.textMessage} />);
+    let DialogItems = props.dialogs.map(d => <Dialog key={d.id}  id = {d.id } Name={d.Name} />);
+    let MessageItems = props.messages.map(t => <Message key={t.id}  textMessage={t.textMessage} />);
 
     return <div className={style.dialogs}>
         <div className={style.dialogsItems}>

@@ -15,7 +15,7 @@ const Profile = (props) => {
                 <ProfileInfo />
             </div>
             <div className={style.blok3}>
-                <MyPostsContainer store={props.store} />
+                <MyPostsContainer/>
             </div>
 
         </div>
