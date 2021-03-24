@@ -7,11 +7,13 @@ import style from './Users.module.css'
 
 const Users = (props) => {
 
+    let getUsers =() => {
     if (props.users.length === 0) {
         axios.get('https://social-network.samuraijs.com/api/1.0//users').then(responce => {
             props.setUsers(responce.data.items);
         })
     }
+}
 
     let UsersItems = props.users.map(u => <OneUser key={u.id}
 
@@ -27,8 +29,8 @@ const Users = (props) => {
 
     return (
         <div>
-            <div>
-                { /* <button onClick={onGetUsersList}>Получить Пользователей</button> */}
+            <div className = {style.blokPosition}>
+             <button onClick={getUsers}>Получить Пользователей</button> 
             </div>
             {UsersItems}
         </div>
