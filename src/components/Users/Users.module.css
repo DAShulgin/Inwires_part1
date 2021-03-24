@@ -1,4 +1,17 @@
 .blokPosition {
     text-align: center;
     padding: 8px;
+    width: 700px;
+    margin: auto;
+    background-color:blanchedalmond;
+    overflow: auto;
+}
+.blokPosition span {
+    padding: 5px;
+}
+
+.selectedPage {
+   font-weight: bold; 
+   font-size: 20px;
+   color: red;
 }
