@@ -1,5 +1,5 @@
 import {setUsers, follow, unfollow} from '../../Redux/users-reducer';
-import Users from './Users';
+import UsersC from './UsersС';
 import {connect} from 'react-redux';
 
 
@@ -12,6 +12,6 @@ let mapStateToProps = (state) => {
 }
 
 
-const UsersContainer = connect(mapStateToProps, {setUsers, follow, unfollow })(Users);
+const UsersContainer = connect(mapStateToProps, {setUsers, follow, unfollow })(UsersC);
 
 export default UsersContainer;

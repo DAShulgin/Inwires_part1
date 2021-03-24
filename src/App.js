@@ -4,7 +4,6 @@ import './App.css';
 import Header from './components/Header/Header';
 import NavigationPanel from './components/Navbar/NavigationPanel';
 import Profile from './components/Profile/Profile';
-import Users from './components/Users/Users';
 import News from './components/News/News';
 import Muzik from './components/Muzik/Muzik';
 import Setting from './components/Setting/Setting';
