@@ -1,0 +1,9 @@
+.ProfileInfo div {
+padding: 5px;
+}
+.fullName {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+}

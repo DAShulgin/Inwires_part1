@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './OneUser.module.css'
 import notAvatar from '../../../img//notAvatar.png'
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -11,7 +12,9 @@ const OneUser = (props) => {
 
         <div className={style.AvatarBlok}>
           
-             <img src= { props.photos.small  != null  ? props.photos.small : notAvatar  } />   
+          <NavLink  to = {'/profile/' + props.id }> 
+         <img src= { props.photos.small  != null  ? props.photos.small : notAvatar  } /> 
+         </NavLink>  
         
         </div>
 

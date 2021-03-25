@@ -3,11 +3,11 @@ import notAvatar from '../../../img/notAvatar.png';
 import style from './AvatarBlok.module.css';
 
 
-const AvatarBlok = () => {
+const AvatarBlok = (props) => {
 
-    return <div className = {style.locBlok}>
+    return <div className={style.locBlok}>
         <div>
-            <img src={notAvatar} />
+            <img src={props.photos != null ? props.photos : notAvatar } />
         </div>
         <div><button>Загрузить</button></div>
     </div>

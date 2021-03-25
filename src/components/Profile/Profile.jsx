@@ -3,19 +3,31 @@ import AvatarBlok from './AvatarBlock/AvatarBlok';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import style from './Profile.module.css'
 import MyPostsContainer from './MyPosts/MyPostsContainer';
+import Preloader from '../common/Preloader/Preloader';
 
 const Profile = (props) => {
+    
+    if(!props.profile){
+        return <Preloader/>
+    }
+
     return (
         <div className={style.grid2} >
 
             <div className={style.blok1}>
-                <AvatarBlok />
+                <AvatarBlok photos = {props.profile.photos.large}/>
             </div>
             <div className={style.blok2}>
-                <ProfileInfo />
+                <ProfileInfo
+                    fullName={props.profile.fullName}
+                    aboutMe={props.profile.aboutMe}
+                    lookingForAJob = {props.profile.lookingForAJob}
+                    lookingForAJobDescription={props.profile.lookingForAJobDescription}
+                    contacts = {props.profile.contacts}
+                />
             </div>
             <div className={style.blok3}>
-                <MyPostsContainer/>
+                <MyPostsContainer />
             </div>
 
         </div>

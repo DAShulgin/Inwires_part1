@@ -3,12 +3,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import NavigationPanel from './components/Navbar/NavigationPanel';
-import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Muzik from './components/Muzik/Muzik';
 import Setting from './components/Setting/Setting';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UserContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
+
 
 
 
@@ -28,7 +29,7 @@ const App = (props) => {
 
         <div className='blok3'>
 
-          <Route exact path='/profile' render={() => <Profile />} />
+          <Route exact path='/profile' render={() => <ProfileContainer/>} />
           <Route path='/dialogs' render={() => <DialogsContainer />} />
           <Route path='/users' render={() => <UsersContainer />} />
           <Route path='/news' render={() => <News />} />
