@@ -1,4 +1,5 @@
 import React from 'react';
+import Preloader from '../common/Preloader/Preloader';
 import OneUser from './OneUser/OneUser';
 import style from './Users.module.css'
 
@@ -13,11 +14,10 @@ let Users = (props) => {
             pages.push(i);
         }
 
-
         return ( <div>
-                <div className={style.blokPosition}>
-                     
-                   {  pages.map(p => { return  <span className = {props.currentPage === p && style.selectedPage} onClick = {()=> {props.onPageChanged(p)}} >{p}</span>} ) }
+                <div className = {style.prLoudPosition}> {props.isFetching ? <Preloader /> : null} </div> 
+                <div className={style.pageList}>
+                { pages.map(p => { return  <span className = {props.currentPage === p && style.selectedPage} onClick = {()=> {props.onPageChanged(p)}} >{p}</span>} ) }
                   
                 </div>
                 { props.users.map(u => <OneUser

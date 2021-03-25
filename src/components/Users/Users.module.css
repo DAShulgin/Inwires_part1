@@ -1,4 +1,9 @@
-.blokPosition {
+.prLoudPosition {
+    width: 120px;
+    height : min-content;
+    margin: 0px auto;
+}
+.pageList {
     text-align: center;
     padding: 8px;
     width: 700px;
@@ -10,7 +15,7 @@
     position: sticky;
     top: 0;
 }
-.blokPosition span {
+.pageList span {
     padding: 5px;
 }
 
