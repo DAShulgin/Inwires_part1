@@ -29,7 +29,7 @@ const App = (props) => {
 
         <div className='blok3'>
 
-          <Route exact path='/profile' render={() => <ProfileContainer/>} />
+          <Route exact path='/profile/:userId?' render={() => <ProfileContainer/>} />
           <Route path='/dialogs' render={() => <DialogsContainer />} />
           <Route path='/users' render={() => <UsersContainer />} />
           <Route path='/news' render={() => <News />} />
