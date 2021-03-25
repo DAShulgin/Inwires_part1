@@ -33,7 +33,8 @@
   box-shadow      : 0 0 40px rgba(0, 0, 0, 0.5);
   border-radius   : 10px;
   padding         : 20px;
-  margin          : 20px;
+  position: sticky;
+  top: 0;
 }
 
 .blok3 {
@@ -52,6 +53,5 @@
     grid-template-areas  :
       'blok1 blok1'
       'blok2 blok3';
-
   }
 }
