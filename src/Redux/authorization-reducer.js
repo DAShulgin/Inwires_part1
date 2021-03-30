@@ -5,7 +5,6 @@ const initialState = {
     auth: false,
     email: null,
     login: null,
-    isFetching: true,
     isAuth: false
 };
 

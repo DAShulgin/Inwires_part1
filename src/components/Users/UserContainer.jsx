@@ -1,5 +1,6 @@
 import { setUsersAC, followAC, unfollowAC, setCurrentPageAC, setTotalUserCountAC, toggleIsFetchingAC } from '../../Redux/users-reducer';
-import { setUsers, follow, unfollow, setCurrentPage, setTotalUserCount, toggleIsFetching } from '../../Redux/users-reducer';
+import { setUsers, follow, unfollow, setCurrentPage, setTotalUserCount } from '../../Redux/users-reducer';
+import { toggleIsFetching } from '../../Redux/toggle-reducer';
 import { connect } from 'react-redux';
 import React from 'react';
 import axios from 'axios';
@@ -10,7 +11,9 @@ class UsersContainer extends React.Component {
 
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(responce => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+        }).then(responce => {
             this.props.toggleIsFetching(false);
             this.props.setUsers(responce.data.items);
             this.props.setTotalUserCount(responce.data.totalCount);
@@ -20,7 +23,9 @@ class UsersContainer extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.toggleIsFetching(true);
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(responce => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+        }).then(responce => {
             this.props.toggleIsFetching(false);
             this.props.setUsers(responce.data.items);
         });
@@ -50,7 +55,7 @@ class UsersContainer extends React.Component {
         pageSize: state.usersPage.pageSize,
         totalUserCount: state.usersPage.totalUserCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.toggle.isFetching
     }
 };
 

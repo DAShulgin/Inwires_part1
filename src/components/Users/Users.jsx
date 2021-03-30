@@ -1,5 +1,6 @@
 import React from 'react';
 import Preloader from '../common/Preloader/Preloader';
+import dopStyle from '../common/Preloader/Preloader.module.css';
 import OneUser from './OneUser/OneUser';
 import style from './Users.module.css'
 
@@ -15,7 +16,7 @@ let Users = (props) => {
         }
 
         return ( <div>
-                <div className = {style.prLoudPosition}> {props.isFetching ? <Preloader /> : null} </div> 
+                <div className = {dopStyle.prLoudPosition}> {props.isFetching ? <Preloader /> : null} </div>  
                 <div className={style.pageList}>
                 { pages.map(p => { return  <span className = {props.currentPage === p && style.selectedPage} onClick = {()=> {props.onPageChanged(p)}} >{p}</span>} ) }
                   

@@ -5,7 +5,7 @@ import logo  from '../../img/logoMain.png'
 import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
-debugger
+
     return ( <div className = {style.headBlok}>
         
         <div className = {style.Logo} >
