@@ -6,6 +6,7 @@ import { FollowedAPI } from '../../../API/api';
 
 
 
+
 const OneUser = (props) => {
 
 
@@ -21,20 +22,22 @@ const OneUser = (props) => {
 
         <div className={style.SubscribBlok}>
             {props.followed
-                ? <button onClick={() => {
-
+                ? <button disabled = {props.followingInProgress.some(id => id === props.id)} onClick={() => {                 
+                    props.toggleFollowingProgress(true, props.id);
                     FollowedAPI.Unfollow(props.id).then(data => {
                         if (data.resultCode == 0) {
                             props.unfollow(props.id);
+                            props.toggleFollowingProgress(false, props.id);
                         }
                     });
                 }}> Отписаться</button>
 
-                : <button onClick={() => {
-
+                : <button disabled = {props.followingInProgress.some(id => id === props.id)} onClick={() => {
+                    props.toggleFollowingProgress(true, props.id);
                     FollowedAPI.Follow(props.id).then(data => {
                         if (data.resultCode == 0) {
                             props.follow(props.id);
+                            props.toggleFollowingProgress(false, props.id);
                         }
                     });
                 }}>Подписаться</button>

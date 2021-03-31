@@ -31,6 +31,8 @@ let Users = (props) => {
                     status={u.status}
                     follow={props.follow}
                     unfollow={props.unfollow}
+                    followingInProgress = {props.followingInProgress}
+                    toggleFollowingProgress  = {props.toggleFollowingProgress}
                 />)}
             </div>
         )
