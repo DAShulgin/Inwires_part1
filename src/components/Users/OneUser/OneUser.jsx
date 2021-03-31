@@ -2,7 +2,7 @@ import React from 'react';
 import style from './OneUser.module.css'
 import notAvatar from '../../../img//notAvatar.png'
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import { FollowedAPI } from '../../../API/api';
 
 
 
@@ -23,12 +23,8 @@ const OneUser = (props) => {
             {props.followed
                 ? <button onClick={() => {
 
-                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,  {
-                        withCredentials: true,
-                        headers: {
-                         'API-KEY': 'f0dba38f-8189-437a-b39d-e6e384de2e19' }
-                    }).then(responce => {
-                        if (responce.data.resultCode == 0) {
+                    FollowedAPI.Unfollow(props.id).then(data => {
+                        if (data.resultCode == 0) {
                             props.unfollow(props.id);
                         }
                     });
@@ -36,12 +32,8 @@ const OneUser = (props) => {
 
                 : <button onClick={() => {
 
-                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {}, {
-                        withCredentials: true,
-                        headers: {
-                            'API-KEY': 'f0dba38f-8189-437a-b39d-e6e384de2e19' }
-                    }).then(responce => {
-                        if (responce.data.resultCode == 0) {
+                    FollowedAPI.Follow(props.id).then(data => {
+                        if (data.resultCode == 0) {
                             props.follow(props.id);
                         }
                     });
