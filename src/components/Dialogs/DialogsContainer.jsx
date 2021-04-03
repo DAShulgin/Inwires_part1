@@ -1,6 +1,7 @@
 import { addMessageAC, updateNewMessageTextAC } from '../../Redux/dialog-reducer';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
+import { WithRedirectComponent } from '../common/HOC/WithRedirectComponent';
 
 
 let mapStateToProps = (state) => {
@@ -8,7 +9,7 @@ let mapStateToProps = (state) => {
     return {
         dialogs: state.dialogPage.dialogs,
         messages: state.dialogPage.messages,
-        NewMessageText: state.dialogPage.NewMessageText
+        NewMessageText: state.dialogPage.NewMessageText,
     }
 }
 
@@ -20,6 +21,8 @@ let mapStateDispatchToProps = (dispatch) => {
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapStateDispatchToProps)(Dialogs);
+
+
+const DialogsContainer = connect(mapStateToProps, mapStateDispatchToProps)(WithRedirectComponent(Dialogs));
 
 export default DialogsContainer;

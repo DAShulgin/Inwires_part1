@@ -5,7 +5,6 @@ import Dialog from './Dialog/Dialog';
 import AddOneMessage from './AddOneMessage/AddOneMessage';
 
 
-
 const Dialogs = (props) => {
 
     let DialogItems = props.dialogs.map(d => <Dialog key={d.id}  id = {d.id } Name={d.Name} />);

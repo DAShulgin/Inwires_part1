@@ -6,10 +6,11 @@ import dopStyle from '../common/Preloader/Preloader.module.css';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import Preloader from '../common/Preloader/Preloader';
 
+
 const Profile = (props) => {
 
     if (!props.profile) {
-        return <div className = {dopStyle.prLoudPosition} >
+        return <div className={dopStyle.prLoudPosition} >
             <Preloader />
         </div>
     }

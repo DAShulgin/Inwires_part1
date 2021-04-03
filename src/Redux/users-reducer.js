@@ -1,4 +1,4 @@
-import { FollowedAPI, UsersAPI } from "../API/api";
+import { UsersAPI } from "../API/api";
 import { toggleIsFetching } from '../Redux/toggle-reducer';
 
 
@@ -90,7 +90,7 @@ export const unfollow = (id) => {
 
     return (dispatch) => {
         dispatch(toggleFollowingProgress(true, id));
-        FollowedAPI.Unfollow(id).then(data => {
+        UsersAPI.Unfollow(id).then(data => {
             if (data.resultCode == 0) {
                 dispatch(UnfollowSuccess(id));
                 dispatch(toggleFollowingProgress(false, id));
@@ -103,7 +103,7 @@ export const follow = (id) => {
 
     return (dispatch) => {
         dispatch(toggleFollowingProgress(true, id));
-        FollowedAPI.Follow(id).then(data => {
+        UsersAPI.Follow(id).then(data => {
             if (data.resultCode == 0) {
                 dispatch(FollowSuccess(id));
                 dispatch(toggleFollowingProgress(false, id));
