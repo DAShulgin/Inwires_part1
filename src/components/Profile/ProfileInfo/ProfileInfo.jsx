@@ -1,13 +1,13 @@
 import React from 'react';
 import style from './ProfileInfo.module.css';
+import Status from './Status/Status';
 
 
 const ProfileInfo = (props) => {
 
     return <div className={style.ProfileInfo}>
         <div className={style.fullName}>{props.fullName}</div>
-        <div><b>Статус: </b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores aperiam consequuntur inventore cumque deserunt odit.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores aperiam</div>
+        <Status status = {'OOOOOoooooooooooOOOO'} />
         <div><b>Коротко о бо мне: </b>{props.aboutMe}</div>
         <div><b>Ищу работу: </b> {props.lookingForAJob == true ? 'Да' : 'Нет'}</div>
         <div>

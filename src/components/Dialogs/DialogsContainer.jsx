@@ -2,6 +2,7 @@ import { addMessageAC, updateNewMessageTextAC } from '../../Redux/dialog-reducer
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 import { WithRedirectComponent } from '../common/HOC/WithRedirectComponent';
+import { compose } from 'redux';
 
 
 let mapStateToProps = (state) => {
@@ -17,12 +18,11 @@ let mapStateDispatchToProps = (dispatch) => {
 
     return {
         NewMessage: () => { dispatch(addMessageAC()); },
-        updateMessage: (text) => {dispatch(updateNewMessageTextAC(text)); }
+        updateMessage: (text) => { dispatch(updateNewMessageTextAC(text)); }
     }
 }
 
-
-
-const DialogsContainer = connect(mapStateToProps, mapStateDispatchToProps)(WithRedirectComponent(Dialogs));
-
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, mapStateDispatchToProps),
+    WithRedirectComponent,
+)(Dialogs);
