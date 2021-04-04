@@ -23,6 +23,8 @@ const Profile = (props) => {
             </div>
             <div className={style.blok2}>
                 <ProfileInfo
+                    status = {props.status} 
+                    updateStatus = {props.updateStatus}
                     fullName={props.profile.fullName}
                     aboutMe={props.profile.aboutMe}
                     lookingForAJob={props.profile.lookingForAJob}

@@ -1,0 +1,8 @@
+.BlockStatus {
+    white-space: pre-wrap  
+}
+
+.BlockStatus input {
+background-color: rgba(237, 244, 250, 1);
+width: 100%;
+}

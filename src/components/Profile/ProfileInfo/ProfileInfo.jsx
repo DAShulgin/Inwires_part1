@@ -7,7 +7,7 @@ const ProfileInfo = (props) => {
 
     return <div className={style.ProfileInfo}>
         <div className={style.fullName}>{props.fullName}</div>
-        <Status status = {'OOOOOoooooooooooOOOO'} />
+        <Status status = {props.status} updateStatus = {props.updateStatus}/>
         <div><b>Коротко о бо мне: </b>{props.aboutMe}</div>
         <div><b>Ищу работу: </b> {props.lookingForAJob == true ? 'Да' : 'Нет'}</div>
         <div>
