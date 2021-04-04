@@ -1,0 +1,31 @@
+.LoginForm {
+    background-color: white;
+    padding: 5px 10px;
+    margin: 20px 50px;
+    width           : min-content;
+    box-shadow      : 0 0 40px rgba(0, 0, 0, 0.5);
+    border-radius   : 10px;
+    border          : 3px solid rgba(237, 244, 250, 1);
+    font-weight: bold;
+}
+.LoginForm div {
+    text-align: right;
+    padding: 8px;
+}
+
+.block1 input{
+    border-radius   : 5px;
+    border          : 2px solid rgb(31, 114, 187);
+    background-color: rgb(232, 240, 254);
+    height: 25px;
+    width: 270px;
+    font-weight: bold;
+}
+
+.LoginForm button {
+    border-radius   : 5px;
+    border          : 2px solid rgb(81, 129, 184);
+    background-color: rgb(81, 129, 184);
+    padding: 8px 25px;
+    font-weight: bold;
+}

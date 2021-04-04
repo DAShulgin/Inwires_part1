@@ -14,7 +14,7 @@ import Login from './components/Login/Login';
 
 
 
-const App = (props) => {
+const App = () => {
 
   return (
     <BrowserRouter>
@@ -29,7 +29,6 @@ const App = (props) => {
         </div>
 
         <div className='blok3'>
-
           <Route exact path='/profile/:userId?' render={() => <ProfileContainer/>} />
           <Route path='/dialogs' render={() => <DialogsContainer />} />
           <Route path='/users' render={() => <UsersContainer />} />
