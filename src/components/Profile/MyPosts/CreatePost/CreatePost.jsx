@@ -1,30 +1,39 @@
 import React from 'react';
-import style from './CreatePost.module.css'
+import style from './CreatePost.module.css';
+import { Field, reduxForm } from 'redux-form';
+
+
+
+const AddPostForm = ({ handleSubmit }) => {
+
+    return <div className={style.addPost} >
+
+        <form onSubmit={handleSubmit}>
+
+            <div>Добавить Пост</div>
+            <div>
+                <Field name='NewPostText' component='textarea' placeholder='Введите текст поста' />
+            </div>
+            <div className={style.btnStyle}>
+                <button>Добавить</button></div>
+
+        </form>
+
+    </div>
+}
+
+const AddPostFormReduxForm = reduxForm({ form: 'AddPostForm' })(AddPostForm);
 
 
 const CreatePost = (props) => {
 
-  
-    let newPostElement = React.createRef();
-
-    let onAddPost = () => {
-    props.addPost()
+    const addNewPost = (value) => {
+        props.addPost(value.NewPostText);
     }
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updatePost(text);
-    }
-
-
-    return <div className={style.addPost} >
-        <div>Добавить Пост</div>
-        <div>
-            <textarea onChange={onPostChange} ref={newPostElement} value={props.NewPostText} />
-        </div>
-        <div className={style.btnStyle}>
-            <button onClick={onAddPost}>Добавить</button></div>
-    </div>
+    return <>
+        <AddPostFormReduxForm onSubmit={addNewPost} />
+    </>
 }
 
 export default CreatePost;

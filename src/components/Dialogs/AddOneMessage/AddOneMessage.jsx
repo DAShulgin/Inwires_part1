@@ -1,19 +1,31 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+
+const AddOneMessageForm = ({ handleSubmit }) => {
+
+    return <div>
+
+        <form onSubmit={handleSubmit} >
+            <div>
+                <Field name= 'NewMessageText' component= 'textarea' placeholder= 'Введите сообщение' />
+            </div>
+            <div><button>Добавить</button></div>
+        </form>
+    </div>
+}
+
+const AddOneMessageReduxForm = reduxForm({ form: 'AddOneMessage' })(AddOneMessageForm);
 
 const AddOneMessage = (props) => {
 
-    let onClickNewMessage = () => {
-        props.NewMessage();
+
+    const addNewMessage = (value) => {
+        props.NewMessage(value.NewMessageText);
     }
 
-    let onChangeUpdateMessage = (e) => {
-        props.updateMessage(e.target.value);
-    }
-
-    return <div>
-        <div><textarea onChange={onChangeUpdateMessage} value={props.NewMessageText} ></textarea> </div>
-        <div><button onClick={onClickNewMessage}>Написать</button></div>
-    </div>
+    return <>
+        <AddOneMessageReduxForm onSubmit={addNewMessage} />
+    </>
 }
 
 export default AddOneMessage;
