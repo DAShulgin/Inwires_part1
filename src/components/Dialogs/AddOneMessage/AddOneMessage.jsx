@@ -1,5 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import {required, maxLengthCreator } from '../../../utils/validators/validators';
+import  {TextArea} from '../../common/FormControls/FormControls';
+
+
+
+const maxLength10 = maxLengthCreator(10);
 
 const AddOneMessageForm = ({ handleSubmit }) => {
 
@@ -7,7 +13,7 @@ const AddOneMessageForm = ({ handleSubmit }) => {
 
         <form onSubmit={handleSubmit} >
             <div>
-                <Field name= 'NewMessageText' component= 'textarea' placeholder= 'Введите сообщение' />
+                <Field name= 'NewMessageText' component= {TextArea} placeholder= 'Введите сообщение' validate = { [required, maxLength10 ]}/>
             </div>
             <div><button>Добавить</button></div>
         </form>

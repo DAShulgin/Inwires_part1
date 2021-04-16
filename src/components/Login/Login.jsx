@@ -1,6 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import style from './Login.module.css';
+import {Input} from '../common/FormControls/FormControls';
+import {required} from '../../utils/validators/validators';
 
 
 const LoginForm = ({ handleSubmit }) => {
@@ -8,14 +10,14 @@ const LoginForm = ({ handleSubmit }) => {
         <form onSubmit={handleSubmit} >
             <div className={style.block1}>
                 <div>
-                    <Field name={'login'} component={'input'} placeholder={'Логин'} />
+                    <Field name={'login'} component={Input} placeholder={'Логин'} validate = {required} />
                 </div>
                 <div>
-                    <Field name={'password'} component={'input'} placeholder={'Пароль'} />
+                    <Field name={'password'} component={Input} placeholder={'Пароль'} validate = {required} />
                 </div>
             </div>
             <div>
-                <Field name={'rememberMe'} component={'input'} type={'checkbox'} />Запомнить
+                <Field name={'rememberMe'} component={Input} type={'checkbox'} />Запомнить
             </div>
             <div><button>Вход</button></div>
         </form>
