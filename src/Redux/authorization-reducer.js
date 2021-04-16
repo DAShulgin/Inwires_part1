@@ -4,7 +4,6 @@ const SET_USER_DATA = 'SET_USER_DATA';
 
 const initialState = {
     userId: null,
-    auth: false,
     email: null,
     login: null,
     isAuth: false
@@ -19,8 +18,7 @@ const authReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                ...action.data,
-                isAuth: true
+                ...action.payload,
             };
 
         default:
@@ -29,18 +27,42 @@ const authReducer = (state = initialState, action) => {
 
 }
 
-export const SetAuthUserData = (userId, login, email) => ({ type: SET_USER_DATA, data: { userId, login, email } });
+export const SetAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, payload: { userId, login, email, isAuth } });
 
 export const Authorization = () => {
-    
-return (dispatch) => {
-         AuthorizationAPI.getAuth().then(data => {
-            if (data.resultCode == 0) {
+    return (dispatch) => {
+        AuthorizationAPI.getAuth().then(data => {
+            if (data.resultCode === 0) {
                 let { id, login, email } = data.data;
-  
-                dispatch(SetAuthUserData(id, login, email));
+                dispatch(SetAuthUserData(id, login, email, true));
             }
-        })
+        });
     }
 }
+
+export const LogIN = (email, password, rememberMe) => {
+    return (dispatch) => {
+        AuthorizationAPI.authIN(email, password, rememberMe).then(data => {
+            if (data.resultCode === 0) {
+                console.log('Ок');
+                dispatch(Authorization())
+            }
+        });
+    }
+}
+
+export const LogOUT = () => {
+    debugger;
+    return (dispatch) => {
+        AuthorizationAPI.authOUT().then(data => {
+            if (data.resultCode === 0) {
+                dispatch(Authorization(null, null, null, false ))
+
+            }
+        });
+    }
+}
+
+
+
 export default authReducer;

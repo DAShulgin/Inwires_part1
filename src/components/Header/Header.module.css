@@ -51,3 +51,10 @@
     margin : 25px auto;
     float  : right;
 }
+.exit {
+    padding: 25px 0px;
+}
+.exit img {
+    height       : 40px;
+    width        : 40px;
+}
