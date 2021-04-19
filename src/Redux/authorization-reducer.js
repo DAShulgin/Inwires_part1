@@ -30,7 +30,7 @@ const authReducer = (state = initialState, action) => {
 
 export const SetAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, payload: { userId, login, email, isAuth } });
 
-export const Authorization = () => {
+export const getAuthUserData  = () => {
     return (dispatch) => {
         AuthorizationAPI.getAuth().then(data => {
             if (data.resultCode === 0) {
@@ -46,7 +46,7 @@ export const LogIN = (email, password, rememberMe) => {
     return (dispatch) => {
         AuthorizationAPI.authIN(email, password, rememberMe).then(data => {
             if (data.resultCode === 0) {
-                dispatch(Authorization())
+                dispatch(getAuthUserData())
             }
             else {
                 let message = data.messages.length > 0 ? data.messages[0] : 'Что-то пошло не так...';
@@ -61,7 +61,7 @@ export const LogOUT = () => {
     return (dispatch) => {
         AuthorizationAPI.authOUT().then(data => {
             if (data.resultCode === 0) {
-                dispatch(Authorization(null, null, null, false ))
+                dispatch(SetAuthUserData(null, null, null, false ))
 
             }
         });

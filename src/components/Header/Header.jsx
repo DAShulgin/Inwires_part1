@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Header.module.css'
 import notAvatar  from '../../img/notAvatar.png'
 import logo  from '../../img/logoMain.png'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import exit from '../../img/exit.png'
 
 const Header = (props) => { 
@@ -19,9 +19,10 @@ const Header = (props) => {
          <div  className = {style.Avatar}>
          <img src = {notAvatar} />
          </div>
-         { props.isAuth == false 
-         ?  null
-         : <div className = {style.exit}><img src = {exit} onClick = { props.LogOUT } title= "Выход"/></div>
+         { props.isAuth
+         ? <div className = {style.exit}><img src = {exit} onClick = { props.LogOUT } title= "Выход"/></div>
+         :  <Redirect to={'/login'} />
+        
          }
         </div>
 </div>
