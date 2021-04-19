@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { AuthorizationAPI } from "../API/api";
 
 const SET_USER_DATA = 'SET_USER_DATA';
@@ -41,11 +42,15 @@ export const Authorization = () => {
 }
 
 export const LogIN = (email, password, rememberMe) => {
+
     return (dispatch) => {
         AuthorizationAPI.authIN(email, password, rememberMe).then(data => {
             if (data.resultCode === 0) {
-                console.log('Ок');
                 dispatch(Authorization())
+            }
+            else {
+                let message = data.messages.length > 0 ? data.messages[0] : 'Что-то пошло не так...';
+                dispatch(stopSubmit('Login', {_error: message}));
             }
         });
     }

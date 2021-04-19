@@ -5,7 +5,7 @@ import { Input } from '../common/FormControls/FormControls';
 import { required } from '../../utils/validators/validators';
 import { Redirect } from 'react-router';
 
-const LoginForm = ({ handleSubmit }) => {
+const LoginForm = ({ handleSubmit, error }) => {
     return <div className={style.LoginForm}>
         <form onSubmit={handleSubmit} >
             <div className={style.block1}>
@@ -19,6 +19,7 @@ const LoginForm = ({ handleSubmit }) => {
             <div>
                 <Field name={'rememberMe'} component='input' type={'checkbox'} />Запомнить
             </div>
+            { error && <div className = {style.formSummaryError}>{error}</div> }
             <div><button>Вход</button></div>
         </form>
     </div>

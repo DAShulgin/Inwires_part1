@@ -29,3 +29,9 @@
     padding: 8px 25px;
     font-weight: bold;
 }
+
+.formSummaryError {
+    border: 2px solid red; 
+    color: red;
+    margin: 4px;
+}
