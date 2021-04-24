@@ -1,13 +1,13 @@
 import React from 'react';
 import style from './ProfileInfo.module.css';
-import Status from './Status/Status';
+import StatusWithHooks from './Status/StatusWithHooks';
 
 
 const ProfileInfo = (props) => {
 
     return <div className={style.ProfileInfo}>
         <div className={style.fullName}>{props.fullName}</div>
-        <Status status = {props.status} updateStatus = {props.updateStatus}/>
+        <StatusWithHooks status = {props.status} updateStatus = {props.updateStatus}/>
         <div><b>Коротко о бо мне: </b>{props.aboutMe}</div>
         <div><b>Ищу работу: </b> {props.lookingForAJob == true ? 'Да' : 'Нет'}</div>
         <div>

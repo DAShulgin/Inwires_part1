@@ -10,20 +10,20 @@ import UsersContainer from './components/Users/UserContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginContainer from './components/Login/LoginContainer';
-import {initializeApp} from './Redux/app-reducer';
+import {InitializedApp} from './Redux/app-reducer';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import Preloader from './components/common/Preloader/Preloader';
 
 
 class App extends React.Component {
 
     componentDidMount() {
-    this.props.initializeApp();
+    this.props.InitializedApp();
   }
   
   render() {
-   
-      if(!this.props.initialized)
+    if(!this.props.initialized)
     return <Preloader />
       
     return (
@@ -59,4 +59,6 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized
 });
 
-export default connect(mapStateToProps, {initializeApp})(App);
+export default compose( 
+  withRouter,
+  connect(mapStateToProps, { InitializedApp }))(App);
