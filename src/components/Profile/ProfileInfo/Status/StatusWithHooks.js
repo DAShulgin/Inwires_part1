@@ -28,7 +28,7 @@ const StatusWithHooks = (props) => {
 
         {!editMode &&
             <div>
-                <span title='Установить статус' onDoubleClick={activeteEditMode}>{props.status != '' ? props.status : <b>.....</b>}</span>
+                <span title='Установить статус' onDoubleClick={activeteEditMode}>{props.status !== '' ? props.status : <b>.....</b>}</span>
             </div>
         }
 

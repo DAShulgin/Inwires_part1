@@ -30,44 +30,31 @@ const authReducer = (state = initialState, action) => {
 
 export const SetAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, payload: { userId, login, email, isAuth } });
 
-export const getAuthUserData  = () => {
-    return (dispatch) => {
-        AuthorizationAPI.getAuth().then(data => {
-            if (data.resultCode === 0) {
-                let { id, login, email } = data.data;
-                dispatch(SetAuthUserData(id, login, email, true));
-            }
-        });
+export const getAuthUserData = () => async (dispatch) => {
+    let responce = await AuthorizationAPI.getAuth();
+    if (responce.resultCode === 0) {
+        let { id, login, email } = responce.data;
+        dispatch(SetAuthUserData(id, login, email, true));
     }
-}
+};
 
-export const LogIN = (email, password, rememberMe) => {
-
-    return (dispatch) => {
-        AuthorizationAPI.authIN(email, password, rememberMe).then(data => {
-            if (data.resultCode === 0) {
-                dispatch(getAuthUserData())
-            }
-            else {
-                let message = data.messages.length > 0 ? data.messages[0] : 'Что-то пошло не так...';
-                dispatch(stopSubmit('Login', {_error: message}));
-            }
-        });
+export const LogIN = (email, password, rememberMe) => async (dispatch) => {
+    let responce = await AuthorizationAPI.authIN(email, password, rememberMe);
+    if (responce.resultCode === 0) {
+        dispatch(getAuthUserData())
     }
-}
-
-export const LogOUT = () => {
-    debugger;
-    return (dispatch) => {
-        AuthorizationAPI.authOUT().then(data => {
-            if (data.resultCode === 0) {
-                dispatch(SetAuthUserData(null, null, null, false ))
-
-            }
-        });
+    else {
+        let message = responce.messages.length > 0 ? responce.messages[0] : 'Что-то пошло не так...';
+        dispatch(stopSubmit('Login', { _error: message }));
     }
-}
+};
 
+export const LogOUT = () => async (dispatch) => {
+    let responce = await AuthorizationAPI.authOUT();
+    if (responce.resultCode === 0) {
+        dispatch(SetAuthUserData(null, null, null, false))
 
+    }
+};
 
 export default authReducer;

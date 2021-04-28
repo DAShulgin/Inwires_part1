@@ -1,0 +1,21 @@
+.pageList {
+    text-align: center;
+    padding: 8px;
+    width: 700px;
+    margin: auto;
+    background-color:blanchedalmond;
+    border          : 3px solid black;
+    border-radius   : 10px;
+    overflow: auto;
+    position: sticky;
+    top: 0;
+}
+.pageList span {
+    padding: 5px;
+}
+
+.selectedPage {
+   font-weight: bold; 
+   font-size: 20px;
+   color: red;
+}

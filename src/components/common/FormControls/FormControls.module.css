@@ -9,6 +9,13 @@ padding: 8px;
 }
 
 .formControl.error span {
-    color: red;
+    color: red;  
 }
 
+.line {
+    display: inline-flex;
+}
+
+.line span {
+    padding: 4px 3px;
+}

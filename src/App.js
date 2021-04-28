@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import NavigationPanel from './components/Navbar/NavigationPanel';
 import NewsContainer from './components/News/NewsContainer';
@@ -12,7 +12,6 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import LoginContainer from './components/Login/LoginContainer';
 import {InitializedApp} from './Redux/app-reducer';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import Preloader from './components/common/Preloader/Preloader';
 
 
@@ -23,9 +22,9 @@ class App extends React.Component {
   }
   
   render() {
-    if(!this.props.initialized)
+    if(!this.props.initialized) {
     return <Preloader />
-      
+    }
     return (
       <BrowserRouter>
         <div className='grid'>
@@ -59,6 +58,4 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized
 });
 
-export default compose( 
-  withRouter,
-  connect(mapStateToProps, { InitializedApp }))(App);
+export default connect(mapStateToProps, { InitializedApp })(App);

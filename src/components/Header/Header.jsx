@@ -10,11 +10,11 @@ const Header = (props) => {
     return ( <div className = {style.headBlok}>
         
         <div className = {style.Logo} >
-     <img src = {logo} />
+     <img src = {logo} alt = 'logo'/>
         </div>
         <div  className = {style.AvatarName}>   
          <div  className = {style.Name}>
-             { props.isAuth == true ? props.login :<NavLink to = '/login'>ВОЙТИ</NavLink> }
+             { props.isAuth === true ? props.login :<NavLink to = '/login'>ВОЙТИ</NavLink> }
          </div>
          <div  className = {style.Avatar}>
          <img src = {notAvatar} />

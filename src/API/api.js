@@ -33,24 +33,21 @@ export const ProfileAPI = {
         return instance.get('profile/status/' + userId)
             .then(responce => responce.data);
     },
-    updateStatus(status){
-        return instance.put('profile/status/', {status: status})
-        .then(responce => responce.data);  
+    updateStatus(status) {
+        return instance.put('profile/status/', { status: status })
+            .then(responce => responce.data);
     }
 }
 
 export const AuthorizationAPI = {
     getAuth() {
-        return instance.get('auth/me').
-            then(responce => responce.data);
+        return instance.get('auth/me').then(responce => responce.data);
     },
     authIN(email, password, rememberMe = false) {
-        return instance.post('/auth/login', { email, password, rememberMe }).
-        then(responce => responce.data);
+        return instance.post('/auth/login', { email, password, rememberMe }).then(responce => responce.data);
     },
     authOUT() {
-        return instance.delete('/auth/login').
-        then(responce => responce.data);
+        return instance.delete('/auth/login').then(responce => responce.data);
     },
 };
 

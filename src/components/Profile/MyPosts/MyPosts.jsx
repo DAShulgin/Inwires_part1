@@ -8,7 +8,6 @@ const MyPosts = (props) => {
 
     let PostItems = props.posts.map(p => <Post key={p.id} text={p.text} like={p.like} />);
 
-
     return <div>
         <div className={style.myPosts}>
             <CreatePost
