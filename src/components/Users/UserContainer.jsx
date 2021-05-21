@@ -2,7 +2,7 @@ import { setUsers, follow, unfollow, setCurrentPage,  requestUsers } from '../..
 import { connect } from 'react-redux';
 import React from 'react';
 import Users from "./Users";
-import {getUsers, getPageSize, getTotalUserCount, getCurrentPage, getIsFetching, getFollowingInProgress } from '../../Redux/users-selectors';
+import {getUsers, getPageSize, getTotalUserCount, getCurrentPage, getIsFetching, getFollowingInProgress, getPortionSize } from '../../Redux/users-selectors';
 
 
 class UsersContainer extends React.Component {
@@ -22,7 +22,7 @@ class UsersContainer extends React.Component {
         return <>
             <Users
                 pageSize={this.props.pageSize}
-                totalUserCount={this.props.totalUserCount}
+                totaItemsCount={this.props.totaItemsCount}
                 currentPage={this.props.currentPage}
                 users={this.props.users}
                 onPageChanged={this.onPageChanged}
@@ -30,6 +30,7 @@ class UsersContainer extends React.Component {
                 unfollow={this.props.unfollow}
                 isFetching={this.props.isFetching}
                 followingInProgress={this.props.followingInProgress}
+                portionSize={this.props.portionSize}
             />
         </>
     }
@@ -40,10 +41,11 @@ const mapStateToProps = (state) => {
     return {
         users: getUsers(state),
         pageSize: getPageSize(state) ,
-        totalUserCount: getTotalUserCount(state),
+        totaItemsCount: getTotalUserCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
-        followingInProgress: getFollowingInProgress(state)
+        followingInProgress: getFollowingInProgress(state),
+        portionSize: getPortionSize(state)
     }
 };
 

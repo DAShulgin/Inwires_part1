@@ -2,17 +2,18 @@ import React from 'react';
 import Paginator from '../common/Paginator/Paginator';
 import Preloader from '../common/Preloader/Preloader';
 import OneUser from './OneUser/OneUser';
-import style from './Users.module.css'
 
 
 let Users = (props) => {
 
         return ( <div>
                 {props.isFetching ? <Preloader /> :            
-                <Paginator totalUserCount = {props.totalUserCount}               
+                <Paginator 
+                totaItemsCount = {props.totaItemsCount}               
                 pageSize = {props.pageSize} 
                 currentPage = {props.currentPage} 
                 onPageChanged = {props.onPageChanged}
+                portionSize={props.portionSize}
                 />
             } 
                 { props.users.map(u => <OneUser

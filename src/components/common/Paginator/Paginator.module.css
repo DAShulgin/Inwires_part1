@@ -1,21 +1,33 @@
-.pageList {
-    text-align: center;
-    padding: 8px;
-    width: 700px;
-    margin: auto;
-    background-color:blanchedalmond;
-    border          : 3px solid black;
-    border-radius   : 10px;
-    overflow: auto;
-    position: sticky;
-    top: 0;
-}
-.pageList span {
-    padding: 5px;
+.pgPosition {
+width: max-content;
+margin: 0px auto; 
+padding: 15px;   
 }
 
-.selectedPage {
+.pgPosition button {
+margin: 10px;
+}
+
+.pgPosition img {
+    height: 35px;
+    width: 24px;
+    padding: 0px 10px;
+    margin-bottom: -10px;
+}
+
+
+.pageLine{
+    padding: 5px 20px;
+    margin: 5px;
+    border-radius: 10%;
+    box-shadow   : 0 0 20px rgba(0, 0, 0, 0.5);
+    text-shadow:   rgb(30, 50, 68) 2px 3px 4px;
+    background-color: rgb(221, 237, 250);
+}
+
+.pageLine.selectedPage {
    font-weight: bold; 
    font-size: 20px;
    color: red;
+   border: 2px solid red;
 }

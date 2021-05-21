@@ -15,7 +15,8 @@ let initialState = {
     totalUserCount: 0, // cколько всего пользователей
     currentPage: 1,  //текущая страница
     isFetching: true,
-    followingInProgress: []
+    followingInProgress: [],
+    portionSize: 10 // размер порции для пагинатора
 };
 
 const userReducer = (state = initialState, action) => {
