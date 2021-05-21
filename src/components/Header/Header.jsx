@@ -1,31 +1,62 @@
-import React from 'react';
-import style from './Header.module.css'
-import notAvatar  from '../../img/notAvatar.png'
-import logo  from '../../img/logoMain.png'
+import React, { useState } from 'react';
+import style from './Header.module.css';
+import notAvatar from '../../img/notAvatar.png';
+import logo from '../../img/logoMain.png';
+import exit from '../../img/exit.png';
 import { NavLink, Redirect } from 'react-router-dom';
-import exit from '../../img/exit.png'
 
-const Header = (props) => { 
 
-    return ( <div className = {style.headBlok}>
-        
-        <div className = {style.Logo} >
-     <img src = {logo} alt = 'logo'/>
+const Header = (props) => {
+
+    const LogOUT = props.LogOUT;
+
+    let [position, SetPosition] = useState(false);
+
+    let OpenMode = () => {
+        SetPosition(true);
+    };
+
+    let CloseMode = () => {
+        SetPosition(false);
+    };
+
+    let ClickExitLogOut = () => {
+        LogOUT();
+        CloseMode();
+    }
+
+    let OpenExitIcon = () => {
+        return <>
+            <div className={style.exit} onMouseOut={CloseMode}><img src={exit} onClick={ClickExitLogOut} title="Выход" /></div>
+        </>
+    }
+
+    let AvatarBlock = () => {
+        return <div className={style.Avatar} onMouseOver={OpenMode}>
+            <div className={style.block1}><img src={notAvatar} /> </div>
+            {position && <div className={style.block2_active}> <OpenExitIcon /> </div>}
         </div>
-        <div  className = {style.AvatarName}>   
-         <div  className = {style.Name}>
-             { props.isAuth === true ? props.login :<NavLink to = '/login'>ВОЙТИ</NavLink> }
-         </div>
-         <div  className = {style.Avatar}>
-         <img src = {notAvatar} />
-         </div>
-         { props.isAuth
-         ? <div className = {style.exit}><img src = {exit} onClick = { props.LogOUT } title= "Выход"/></div>
-         :  <Redirect to={'/login'} />
-        
-         }
+    }
+
+    return (<div className={style.headBlok}>
+        <div className={style.Block1} >
+            <div className = {style.BlockLogo}><img src={logo} alt='logo'/></div>
         </div>
-</div>
+
+        {props.isAuth === true
+            ? <div className={style.Block2}>
+                <div className={style.Name}> {props.login} </div>
+                <AvatarBlock />
+            </div>
+            : <>
+                <Redirect to={'/login'} />
+                <NavLink to='/login'>
+                <div className ={style.EnterText}>Авторизоваться</div></NavLink>
+            </>
+        }
+
+
+    </div>
     )
 }
 

@@ -1,3 +1,12 @@
 .myPosts {
     padding-left: 5px;
 }
+.Osn {
+    padding: 10px 0px;
+    border          : 3px solid rgb(28, 29, 29);
+    border-radius   : 10px;
+}
+.MyPostsText {
+    padding-left: 20px;
+    font-weight: bold;
+}

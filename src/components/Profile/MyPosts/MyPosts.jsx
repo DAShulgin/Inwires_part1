@@ -14,8 +14,10 @@ const MyPosts = (props) => {
                 NewPostText={props.NewPostText}
                 addPost={props.addPost}
                 updatePost={props.updatePost} />
-            <div>Мои посты</div>
+            <div className={style.Osn}>
+             <div className = {style.MyPostsText}>Мои посты</div>
             {PostItems}
+            </div>
         </div>
     </div>
 }

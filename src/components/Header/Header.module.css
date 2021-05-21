@@ -1,34 +1,44 @@
 .headBlok {
     display: grid;
     grid-template-areas:
-        'Logo AvatarName';
-    grid-template-columns: 5fr 1fr;
+        'Block1 Block2';
+    grid-template-columns: 6fr 1fr;
     grid-gap             : 15px;
     font-family          : 'Comic Sans MS';
-    font-size            : 30px;
     font-weight          : bold;
+    height: 95px;
 }
 
-.Logo {
-    grid-area: Logo;
+.Block1 {
+    grid-area: Block1;
+    z-index: 1;
 }
 
-.Logo img {
-    height     : 70px;
-    width      : 350px;
-    margin-left: 20px;
-    margin-top : 10px;
+.BlockLogo {
+   z-index: 2;
+   padding: 39px 0px;
+}
+.BlockLogo img {
+    height     : 80px;
+    width      : 400px;
 }
 
-.AvatarName {
-    grid-area    : AvatarName;
+.Block2 {
+    grid-area    : Block2;
     height       : min-content;
     width        : min-content;
     display      : flex;
     box-shadow   : 0 0 20px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     font-size    : 25px;
-    margin-left:  100px;
+    margin-left  : 100px;
+}
+
+.EnterText {
+    font-size    : 25px;
+    text-align: right;
+    text-shadow:   rgb(31, 114, 187) 2px 3px 4px;
+    padding: 20px 20px;
 }
 
 .Avatar {
@@ -51,10 +61,22 @@
     margin : 25px auto;
     float  : right;
 }
+
 .exit {
-    padding: 25px 0px;
+    margin: -60px 8px;
 }
+
 .exit img {
-    height       : 40px;
-    width        : 40px;
+    height: 60px;
+    width : 60px;
+}
+
+.block1 {
+    position: static;
+    z-index : 1;
+}
+
+.block2 {
+    z-index : 2;
+    position: static;
 }

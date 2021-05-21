@@ -1,6 +1,6 @@
 .item {
-    padding-right: 20px;
-    text-align   : right;
+    padding: 2px 20px;
+    text-align   : left;
 }
 .item div:nth-child(1) {
     font-size  : 20px;

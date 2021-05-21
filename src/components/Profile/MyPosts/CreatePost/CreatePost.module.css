@@ -1,10 +1,37 @@
 .addPost {
-    padding: 20px;
-    margin-bottom: 10px;
-    border          : 2px solid black;
-    border-radius   : 10px;
-    width: min-content;
+    padding: 10px;
+    background-color: rgb(221, 237, 250);
+    border-radius: 10px;
 }
-.btnStyle{
+
+.addPost textarea {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.btnStyle {
     text-align: right;
+    padding: 10px 0px;
+}
+.btnStyle button {
+    margin: 0px 5px;
+}
+
+
+.CreatePost {
+    background-color: rgb(221, 237, 250);
+    border-radius: 10%;
+    width: max-content;
+    padding: 8px 0px;
+    font-weight: bold;
+}
+.CreatePost span {
+    margin: 10px;
+}
+.NewStyle {
+  background-color: red;
+}
+.Osn {
+    padding: 10px 0px;
 }

@@ -1,4 +1,8 @@
+.OnePost {
+    padding: 0px 20px;
+}
 .item {
+    padding: 10px;
     margin-top: 8px;
     display: flex;
     background-color: rgb(221, 237, 250);
@@ -7,9 +11,8 @@
 .item img {
     width: 50px;
     height: 50px;
-    border-radius: 50%  50%  50%  50%;
-    border: 3px solid black;
-    margin: 5px;
+    border-radius: 50%;
+    border: 2px solid black;
 }
 .textPost {
     color: black;
@@ -17,6 +20,5 @@
     font-family: 'Comic Sans MS';
     font-size: 18px;
     text-align: justify;
-    margin: 20px 10px;
-
+    padding: 10px 15px;
 }

@@ -5,7 +5,7 @@ import Like from '../Like/Like';
 
 const Post = (props) => {
 
-    return <div>
+    return <div className = {style.OnePost}>
         <div className={style.item}>
             <img src={notAvatar} />
             <div className={style.textPost}> {props.text}</div>
