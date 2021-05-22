@@ -7,15 +7,15 @@ import OneUser from './OneUser/OneUser';
 let Users = (props) => {
 
         return ( <div>
-                {props.isFetching ? <Preloader /> :            
+              { props.isFetching ? <Preloader /> : null }    
                 <Paginator 
                 totaItemsCount = {props.totaItemsCount}               
                 pageSize = {props.pageSize} 
                 currentPage = {props.currentPage} 
                 onPageChanged = {props.onPageChanged}
                 portionSize={props.portionSize}
-                />
-            } 
+                /> 
+            
                 { props.users.map(u => <OneUser
                     key={u.id}
                     id={u.id}

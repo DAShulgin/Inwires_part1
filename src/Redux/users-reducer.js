@@ -14,7 +14,7 @@ let initialState = {
     pageSize: 10,  // кол-во юзеров на одной странице 
     totalUserCount: 0, // cколько всего пользователей
     currentPage: 1,  //текущая страница
-    isFetching: true,
+    isFetching: false,
     followingInProgress: [],
     portionSize: 10 // размер порции для пагинатора
 };

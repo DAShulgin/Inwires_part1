@@ -6,7 +6,7 @@ export const getPageSize = (state) => {
     return state.usersPage.pageSize
 };
 
-export const getTotalUserCount = (state) => {
+export const totaItemsCount = (state) => {
     return state.usersPage.totalUserCount
 };
 
