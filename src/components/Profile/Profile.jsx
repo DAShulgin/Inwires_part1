@@ -19,7 +19,7 @@ const Profile = (props) => {
         <div className={style.grid2} >
 
             <div className={style.blok1}>
-                <AvatarBlok photos={props.profile.photos.large} />
+                <AvatarBlok isOwner = {props.isOwner} photos={props.profile.photos.large} savePhoto = {props.savePhoto}/>
             </div>
             <div className={style.blok2}>
                 <ProfileInfo

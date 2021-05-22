@@ -1,8 +1,14 @@
 .BlockStatus {
-    white-space: pre-wrap  
+    white-space: pre-wrap;
+    text-align : center;
+    font-size  : 22px;
+    font-weight: bold;
 }
 
 .BlockStatus input {
-background-color: rgba(237, 244, 250, 1);
-width: 100%;
+    width           : 100%;
+    text-align      : center;
+    font-size       : 22px;
+    font-weight     : bold;
+    background-color: rgba(237, 244, 250, 1);
 }

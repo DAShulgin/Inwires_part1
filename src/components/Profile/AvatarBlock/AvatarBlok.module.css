@@ -1,8 +1,12 @@
-.locBlok {
-    padding: 10px;
-    text-align: center;
-}
 img {
-    height: 180px;
-    width: 180px;
+    border-radius   : 10px;
+    height: max-content;
+    width: max-content;
+}
+.loudButton {
+    width: max-content;
+    margin: 0px auto;  
+}
+.loudButton input {
+ margin-left: 15px;
 }

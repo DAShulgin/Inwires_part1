@@ -42,7 +42,7 @@ class Status extends React.Component {
                 </div>
             }
             {this.state.editMode &&
-                <div >
+                <div>
                     <input autoFocus={true} maxLength='300' onChange={this.onChangeUpdateStatus} onBlur={this.deactiveteEditMode.bind(this)} value={this.state.status} ></input>
                 </div>
             }
