@@ -27,7 +27,9 @@ const Header = (props) => {
 
     let OpenExitIcon = () => {
         return <>
-            <div className={style.exit} onMouseOut={CloseMode}><img src={exit} onClick={ClickExitLogOut} title="Выход" /></div>
+            <div className={style.exit} onMouseOut={CloseMode}>
+            <img src={exit} onClick={ClickExitLogOut} title="Выход" />
+            </div>
         </>
     }
 

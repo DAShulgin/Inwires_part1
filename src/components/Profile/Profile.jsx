@@ -7,9 +7,9 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 import Preloader from '../common/Preloader/Preloader';
 
 
-const Profile = (props) => {
+const Profile = ({profile, isOwner, savePhoto, status, updateStatus, saveProfile }) => {
 
-     if (!props.profile) {
+     if (!profile) {
         return <div className={dopStyle.prLoudPosition} >
            <Preloader />
         </div>
@@ -19,17 +19,15 @@ const Profile = (props) => {
         <div className={style.grid2} >
 
             <div className={style.blok1}>
-                <AvatarBlok isOwner = {props.isOwner} photos={props.profile.photos.large} savePhoto = {props.savePhoto}/>
+                <AvatarBlok isOwner = {isOwner} photos={profile.photos.large} savePhoto = {savePhoto}/>
             </div>
             <div className={style.blok2}>
                 <ProfileInfo
-                    status = {props.status} 
-                    updateStatus = {props.updateStatus}
-                    fullName={props.profile.fullName}
-                    aboutMe={props.profile.aboutMe}
-                    lookingForAJob={props.profile.lookingForAJob}
-                    lookingForAJobDescription={props.profile.lookingForAJobDescription}
-                    contacts={props.profile.contacts}
+                    status = {status} 
+                    updateStatus = {updateStatus}
+                    profile = {profile}
+                    isOwner = {isOwner}
+                    saveProfile = {saveProfile}
                 />
             </div>
             <div className={style.blok3}>

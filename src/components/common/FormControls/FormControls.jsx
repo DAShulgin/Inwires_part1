@@ -27,7 +27,6 @@ export const Input = (props) => {
 }
 
 export const createField = (name, component, placeholder, validators, props = {}, text = '') => (
-    <div>
        <span className = {style.line}><Field
             name={name}
             component={component}
@@ -35,5 +34,4 @@ export const createField = (name, component, placeholder, validators, props = {}
             validate={validators}
             {...props} /> <span>{text}</span>
        </span>      
-    </div>
 )

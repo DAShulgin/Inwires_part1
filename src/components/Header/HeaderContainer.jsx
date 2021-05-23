@@ -12,7 +12,6 @@ class HeaderContainer extends React.Component {
             login = {this.props.login}
             isAuth = {this.props.isAuth}
             LogOUT = {this.props.LogOUT}
-            captchaUrl = {this.props.captchaUrl}
             />
         </>
     }
