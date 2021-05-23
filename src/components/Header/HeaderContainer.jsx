@@ -12,6 +12,7 @@ class HeaderContainer extends React.Component {
             login = {this.props.login}
             isAuth = {this.props.isAuth}
             LogOUT = {this.props.LogOUT}
+            captchaUrl = {this.props.captchaUrl}
             />
         </>
     }
@@ -23,7 +24,7 @@ let mapStateToProps = (state) => {
         userId: state.auth.userId,
         email: state.auth.email,
         login: state.auth.login,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
     }
 };
 

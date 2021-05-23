@@ -35,3 +35,13 @@
     color: red;
     margin: 4px;
 }
+
+.captcha img {
+border: 2px solid red;
+}
+.captcha input {
+    width: 180px;
+    border-radius   : 5px;
+    border          : 2px solid rgb(31, 114, 187);
+    background-color: rgb(232, 240, 254);
+}

@@ -5,15 +5,28 @@ import { createField, Input } from '../common/FormControls/FormControls';
 import { required } from '../../utils/validators/validators';
 import { Redirect } from 'react-router';
 
-const LoginForm = ({ handleSubmit, error }) => {
+
+const Captha = ({ captchaUrl }) => {
+
+    return <>
+        { captchaUrl && <div className = {style.captcha}>
+        <img src={captchaUrl} />
+        { createField('captcha', Input, 'Введите символы с картинки', [required]) }
+        </div>
+        }
+    </>
+}
+
+const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
     return <div className={style.LoginForm}>
         <form onSubmit={handleSubmit} >
             <div className={style.block1}>
-            {createField('email', Input, 'Email', [required])}
-            {createField('password', Input, 'Пароль', [required], { type: 'password' })}
+                {createField('email', Input, 'Email', [required])}
+                {createField('password', Input, 'Пароль', [required], { type: 'password' })}
             </div>
             {createField('rememberMe', Input, null, [], { type: 'checkbox' }, 'Запомнить')}
             {error && <div className={style.formSummaryError}>{error}</div>}
+            <Captha captchaUrl={captchaUrl} />
             <div><button>Вход</button></div>
         </form>
     </div>
@@ -28,6 +41,7 @@ const Login = (props) => {
             formData.email,
             formData.password,
             formData.rememberMe,
+            formData.captcha
         );
     }
 
@@ -35,7 +49,7 @@ const Login = (props) => {
         return <Redirect to='/profile' />
     }
     return <>
-        <LoginReduxForm onSubmit={onSubmit} />
+        <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </>
 }
 
