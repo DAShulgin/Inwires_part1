@@ -1,15 +1,16 @@
 import { stopSubmit } from "redux-form";
-import { AuthorizationAPI, SecurityAPI } from "../API/api";
+import { AuthorizationAPI, ProfileAPI, SecurityAPI } from "../API/api";
 
 const SET_USER_DATA = 'SET_USER_DATA';
-const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
+const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS';
+const SET_USERS_PROFILE = 'SET-USERS-PROFILE';
 
 const initialState = {
     userId: null,
     email: null,
     login: null,
     isAuth: false,
-    captchaUrl: null 
+    profile: null,
 };
 
 
@@ -24,6 +25,9 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.payload,
             };
+            case SET_USERS_PROFILE: {
+                return {...state, profile: action.profile }
+            }
      
         default:
             return state;
@@ -33,6 +37,7 @@ const authReducer = (state = initialState, action) => {
 
 export const SetAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, payload: { userId, login, email, isAuth } });
 export const GetCaptchaUrlSuccess = (captchaUrl) => ({ type: GET_CAPTCHA_URL_SUCCESS,  payload: { captchaUrl }  });
+export const SetUserProfile = (profile) => ({type: SET_USERS_PROFILE, profile});
 
 export const getAuthUserData = () => async (dispatch) => {
     let responce = await AuthorizationAPI.getAuth();
@@ -41,6 +46,14 @@ export const getAuthUserData = () => async (dispatch) => {
         dispatch(SetAuthUserData(id, login, email, true));
     }
 };
+
+export const getProfile = (userId) => {
+    return (dispatch) => {
+        ProfileAPI.getProfile(userId).then(data => {
+            dispatch(SetUserProfile(data));
+        });
+    }
+}
 
 export const LogIN = (email, password, rememberMe, captcha) => async (dispatch) => {
     let responce = await AuthorizationAPI.authIN(email, password, rememberMe, captcha);
@@ -61,8 +74,8 @@ export const LogIN = (email, password, rememberMe, captcha) => async (dispatch) 
 export const LogOUT = () => async (dispatch) => {
     let responce = await AuthorizationAPI.authOUT();
     if (responce.resultCode === 0) {
-        dispatch(SetAuthUserData(null, null, null, false))
-
+        dispatch(SetAuthUserData(null, null, null, false));
+        dispatch(SetUserProfile(null));
     }
 };
 

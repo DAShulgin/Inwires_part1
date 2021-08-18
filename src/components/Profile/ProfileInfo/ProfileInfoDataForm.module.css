@@ -1,0 +1,45 @@
+.formSummaryError {
+    border: 2px solid red;
+    color : red;
+    margin: 4px;
+}
+
+.contactsBlock1 {
+    margin: 10px;
+}
+
+.contactsBlock1 .block {
+    margin-bottom: -22px;
+}
+
+.contactsBlock1 .block span {
+    margin: 2px 0px;
+    border-radius   : 10px;
+    vertical-align  : middle;
+}
+
+.contactsBlock1 textarea {
+    margin-top: -15px;
+    min-width : 450px;
+    min-height: 50px;
+}
+
+
+.contactsBlock2 {
+    width           : max-content;
+    margin: 15px 10px;
+}
+
+.contactsBlock2 .block {
+    margin-bottom: -20px;
+    text-align   : right;
+}
+.contactsBlock2 input {
+    padding: 3px;
+    margin: 8px 0px;
+}
+.btn {
+    margin: 0px 10px;
+}
+
+

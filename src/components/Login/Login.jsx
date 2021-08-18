@@ -46,8 +46,10 @@ const Login = (props) => {
     }
 
     if (props.isAuth) {
+        props.getProfile(props.userId);
         return <Redirect to='/profile' />
     }
+
     return <>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </>

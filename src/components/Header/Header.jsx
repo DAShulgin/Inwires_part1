@@ -4,9 +4,11 @@ import notAvatar from '../../img/notAvatar.png';
 import logo from '../../img/logoMain.png';
 import exit from '../../img/exit.png';
 import { NavLink, Redirect } from 'react-router-dom';
+import Preloader from '../common/Preloader/Preloader';
 
 
 const Header = (props) => {
+
 
     const LogOUT = props.LogOUT;
 
@@ -35,10 +37,12 @@ const Header = (props) => {
 
     let AvatarBlock = () => {
         return <div className={style.Avatar} onMouseOver={OpenMode}>
-            <div className={style.block1}><img src={notAvatar} /> </div>
-            {position && <div className={style.block2_active}> <OpenExitIcon /> </div>}
+            <div><img src={ 
+                props.profile === null ? notAvatar : props.profile.photos.small  } /> </div>
+            {position && <div> <OpenExitIcon /> </div>}
         </div>
     }
+
 
     return (<div className={style.headBlok}>
         <div className={style.Block1} >
